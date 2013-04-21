@@ -1,0 +1,33 @@
+<center>
+
+<p id="notice"><%= notice %></p>
+<div style="margin: 0 auto;">
+	<div style="width: 400px;display:">
+<p>
+  <b>Name:</b>
+  <%= @new_pro.name %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @new_pro.lastName %>
+</p>
+
+<p>
+  <b>Phonenumber:</b>
+  <%= @new_pro.phoneNumber %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @new_pro.country %>
+</p>
+
+
+<%= link_to 'Edit', edit_new_pro_path(@new_pro) %> |
+</div>
+	<div style="width: 400px;display: margin-left:200px">
+		<%= render :template => 'videos/show'%>
+	</div>
+</div>
+</center>

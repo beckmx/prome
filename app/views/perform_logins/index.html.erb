@@ -1,0 +1,27 @@
+<h1>Listing perform_logins</h1>
+
+<table>
+  <tr>
+    <th>Phone</th>
+    <th>Logincode</th>
+    <th>Isactive</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @perform_logins.each do |perform_login| %>
+  <tr>
+    <td><%= perform_login.phone %></td>
+    <td><%= perform_login.loginCode %></td>
+    <td><%= perform_login.isactive %></td>
+    <td><%= link_to 'Show', perform_login %></td>
+    <td><%= link_to 'Edit', edit_perform_login_path(perform_login) %></td>
+    <td><%= link_to 'Destroy', perform_login, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Perform login', new_perform_login_path %>

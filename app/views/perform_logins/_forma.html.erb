@@ -1,0 +1,23 @@
+<%= form_for perform_login do |f| %>
+  <% if perform_login.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(perform_login.errors.count, "error") %> prohibited this perform_login from being saved:</h2>
+
+      <ul>
+      <% perform_login.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field">
+    <%= f.label :loginCode %><br />
+    <%= f.text_field :loginCode %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Submit code" %>
+  </div>
+<% end %>

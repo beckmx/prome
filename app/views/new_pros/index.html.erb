@@ -1,0 +1,29 @@
+<h1>Listing new_pros</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Lastname</th>
+    <th>Phonenumber</th>
+    <th>Country</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @new_pros.each do |new_pro| %>
+  <tr>
+    <td><%= new_pro.name %></td>
+    <td><%= new_pro.lastName %></td>
+    <td><%= new_pro.phoneNumber %></td>
+    <td><%= new_pro.country %></td>
+    <td><%= link_to 'Show', new_pro %></td>
+    <td><%= link_to 'Edit', edit_new_pro_path(new_pro) %></td>
+    <td><%= link_to 'Destroy', new_pro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New New pro', new_new_pro_path %>

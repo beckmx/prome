@@ -1,0 +1,19 @@
+
+<% if session[:current_user_id]!=nil -%>
+	<% @video=Video.find_all_by_phone(session[:current_user_id]) %>
+<% end -%>
+<p id="notice"><%= notice %></p>
+<% @video.each do |mvideo| -%>
+<p>
+  <b>Url:</b>
+  <a href="<%= mvideo.url %>">One of your videos, click here!</a>
+  
+</p>
+
+
+<p>
+  <b>Provotes:</b>
+  <%= mvideo.proVotes %>
+</p>
+<% end -%>
+

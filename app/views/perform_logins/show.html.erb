@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Phone:</b>
+  <%= @perform_login.phone %>
+</p>
+
+<p>
+  <b>Logincode:</b>
+  <%= @perform_login.loginCode %>
+</p>
+
+<p>
+  <b>Isactive:</b>
+  <%= @perform_login.isactive %>
+</p>
+
+
+<%= link_to 'Edit', edit_perform_login_path(@perform_login) %> |
+<%= link_to 'Back', perform_logins_path %>

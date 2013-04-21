@@ -1,0 +1,1 @@
+wasGood = system( "python ./../../../wapp/src/yowsup-cli -l -c ../../../wapp/src/config.example" )

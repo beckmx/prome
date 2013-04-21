@@ -1,0 +1,91 @@
+<center>
+<div id="myProVote" ><img src="http://consultware.mx:3000/assets/botonpro.png" style="zoom:.2;margin-top:1700px;display:none;margin-left:50%; z-index:1;position:absolute;left:-340px;" onclick="destroyProBtn();"></div>
+<div id="willLogoDiv" style="left:50%;position:absolute;margin-left:-810px"><img src="http://consultware.mx:3000/assets/logowillgigante.png"></div>
+<div id="logoproDiv" style="left:50%;display:none;position:absolute;margin-left:-810px"><img src="http://consultware.mx:3000/assets/logoprometal.png"></div>
+<div id="myProVideo" style="width:100%;height:500">
+    <div id="registerLogin" style="left:30%;display:none;position:absolute;margin-left:-50px;bottom:0px;opacity:0"><img src="http://consultware.mx:3000/assets/bitacoraUNDER6.png" onclick="gotoNewAccount();"></div>
+<div id="myProfileDiv" style="left:45%;display:none;position:absolute;margin-left:-50px;bottom:0px;opacity:0"><img src="http://consultware.mx:3000/assets/cascoPROFILE.png" onclick="showMyVideos();" ></div>
+<div id="theVideosDiv" style="left:60%;display:none;position:absolute;margin-left:-50px;bottom:0px;opacity:0"><img src="http://consultware.mx:3000/assets/galaxiaVIDEOS.png" onclick="showAllVideos();"></div>
+<div id="saturdayJamDiv" style="left:75%;display:none;position:absolute;margin-left:-50px;bottom:0px;opacity:0"><img src="http://consultware.mx:3000/assets/3cohetesSaturdayJam.png"></div>
+ </div>
+
+
+</center>
+<script type="text/javascript">
+$(document).ready(function() {
+  introWill();
+});
+function gotoNewAccount(){
+    window.location.href="new_pros/new";
+}
+function showMyVideos(){
+    window.location.href="new_pros/<%= session[:current_user_id] %>";
+}
+function showAllVideos(){
+    window.location.href="videos";
+}
+function destroyProBtn(){
+    
+    $("#myProVote").css("display","none");
+}
+//640 x 960
+function introWill(){
+    $('#willLogoDiv').animate({zoom:.4,opacity:.4}, 4000,logoWillFinishAnim);
+}
+function logoWillFinishAnim(){
+    $("#registerLogin").css("display","block");
+    $("#willLogoDiv").css("display","none");
+    $("#myProfileDiv").css("display","block");
+    $("#logoproDiv").css("display","block");
+    $("#theVideosDiv").css("display","block");
+    $("#saturdayJamDiv").css("display","block");
+    $('#logoproDiv').animate({zoom:.2,opacity:1}, 2000,animMenuOne);
+}
+function animMenuOne(){
+    $('#registerLogin').animate({bottom:"80px",opacity:1}, 600,animMenuTwo);
+}
+function animMenuTwo(){
+    $('#myProfileDiv').animate({bottom:"80px",opacity:1}, 600,animMenuThree);
+}
+function animMenuThree(){
+    $('#theVideosDiv').animate({bottom:"80px",opacity:1}, 600,animateMenuFour);
+}
+function animateMenuFour(){
+    $('#saturdayJamDiv').animate({bottom:"80px",opacity:1}, 600);   
+}
+function initPlayer(){
+    $("#myProVote").css("display","block");
+    jwplayer("myProVideo").setup({
+        height:480,
+        width:"80%",
+        stretching: "exactfit",
+        controlbar: "bottom",
+        file: "https://mms949.whatsapp.net/d/g7AqraKceSQKYQ5hF2A4lCVX1WU/AmqSNeOBj_wjJcGfaw0dnchYN-ONIEJo5dsOdxOT5D_u.mp4",
+        image: "/uploads/myPoster.jpg",
+        events:{
+        onComplete: function() {
+           //
+        }
+    },
+    });
+    
+    }
+
+var minutos=30;
+var segundos=0;
+var counter=setInterval(timer, 1000); //1000 will  run it every 1 second
+
+       function timer()
+{
+  count=count-1;
+  if (count <= 0)
+  {
+     clearInterval(counter);
+     return;
+  }
+
+ document.getElementById("timer").innerHTML=count + " secs"; // watch for spelling
+}
+</script>
+<div id="myProTimer" style="position:absolute;display:block;top:15px;left:15px;"><span id="timer"></span></div>
+

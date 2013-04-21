@@ -1,0 +1,20 @@
+<center>
+
+	<% if session[:current_user_id]!=nil -%>
+	<%= javascript_tag "window.location.href='http://www.consultware.mx:3000/'" %>
+	<% end -%>
+	<h1>Create your PRO account!</h1>
+	<div style="margin: 0 auto;">
+		
+			<div style="width: 100px;display: inline-block">
+			<%= render 'form' %>
+			</div>
+			<div style="width: 100px;display: inline-block;margin-left:200px">
+			<%= render :partial => 'perform_logins/forma', :locals => {:perform_login => PerformLogin.new} %>
+			
+			</div>
+
+	</div>
+<%= link_to 'Back', new_pros_path %>
+
+</center>
